@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quina</title>
+  
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+
+
+  <style type="text/css">
+  *{
+
+  margin: 0;
+  
+	font-family: 'Oswald', sans-serif;
+  }
+    #tela {
+      width: 1280px;
+      height: 720px;
+	  position: fixed; 
+	  margin-top: -140px; 
+	  margin-left: 0px; 
+	  font-family: 'Oswald', sans-serif;
+    }
+
+	
+	  button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #timerButton {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    #finalButton {
+      background-color: #3498db;
+      color: white;
+      border: none;
+    }
+
+    input {
+      margin-top: 10px;
+      padding: 5px;
+      font-size: 14px;
+      width: 800px;
+      height: 35px;
+    }
+	
+
+.seletorCor{
+margin-top: -100px;
+width: 25px;
+}
+	
+	
+  </style>
+</head>
+
+<body>
+
+
+  <div id="tela" style="background-color: #FFAEFA;" >
+  
+  <input type="color" id="cor" name="cor" value="#FFAEFA"; style="position: relative; margin-left: 10px; width: 50px; height: 50px;";></input>
+  
+<img id="ppt" src="modelo.png" style="position: fixed; width: 650px; margin-top: 71px; margin-left: 570px;" />
+	
+	
+
+	    <script type="text/javascript">
+      function moveEsquerda() {
+        var img = document.getElementById('ppt');
+        var currentPosition = parseInt(img.style.marginLeft) || 0;
+
+        // Move a imagem até o final da div
+        img.style.transition = "margin-left 1s";
+        img.style.marginLeft = '-500px';
+
+        // Aguarda 1 segundo e reposiciona a imagem no início
+        setTimeout(function () {
+          img.style.transition = "none";
+          img.style.marginLeft = '600px'; // Largura da imagem negativa para entrar pelo outro lado
+        }, 1000);
+      }
+    </script>
+	
+	
+	<script type="text/javascript">
+    function reiniciarPagina() {
+      // Use a função location.reload() para recarregar a página
+      location.reload();
+    }
+	  </script>
+	
+	
+	
+	
+	
+
+<script type="text/javascript">
+		
+	
+      function playAudio() {
+        var audio1 = new Audio("quina.mp3");
+        var audio2 = new Audio("20s.mp3");
+
+        audio1.play();
+
+        audio1.onended = function () {
+          audio2.play();
+        };
+      }
+    </script>
+
+
+	
+	<script type="text/javascript">
+	
+	function chamarAmbas() {
+	
+
+	
+	
+      aniLegendas();
+	  
+	  
+	        // Obtém o elemento de áudio
+      var meuAudio = document.getElementById('audio');
+      
+      // Verifica se o áudio está pausado, se sim, reproduz
+      if (meuAudio.paused) {
+        meuAudio.play();
+      } else {
+        // Se estiver reproduzindo, reinicia do início
+        meuAudio.currentTime = 0;
+      }
+
+    }
+	</script>
+	
+
+
+
+
+
+  <script type="text/javascript">
+    // Exemplo de como você pode usar o valor selecionado
+    // Adiciona um listener de evento ao seletor de cores
+    document.getElementById('cor').addEventListener('input', function (event) {
+      // Obtém o valor selecionado no seletor de cores
+      var corSelecionada = event.target.value;
+
+      // Aplica a cor à div
+      document.getElementById('tela').style.backgroundColor = corSelecionada;
+    });
+  </script>
+  
+  <script type="text/javascript">
+  function joao(){
+	document.getElementById("ppt").src ="touro.png";
+  }
+  </script>
+  
+    <p id="result"        style="margin-top: 20px;   margin-left:   80px; text-align: left; font-size: 55px; color: black;  width: 640px; height: 600px;" contenteditable="true">QUINA<br>6348<br>ACUMULOU!</p>
+    <p id="painelDireita" style="margin-top: -590px; margin-left:  700px; text-align: left; font-size: 55px; color: green;  width: 640px; height: 600px;" contenteditable="true">QUINA<br>6347<br>1 GANHADOR!</p>
+
+
+
+  <script type="text/javascript">
+  var z=0;
+  function right(){
+  registerTime('TIMER');
+  document.getElementById("result").innerHTML = b[z];	
+  document.getElementById("painelDireita").innerHTML = c[z];	
+  z++;
+  };
+
+  function left(){
+  
+  document.getElementById("result").innerHTML = b[z];	
+  document.getElementById("painelDireita").innerHTML = c[z];	
+  z=z-1;
+  };
+</script>
+
+
+
+<script type="text/javascript">
+
+
+	var a=[0,3000,6000,9000,12000,15000,18000,21000,24000,27000,30000,33000];
+	var x=[0,18000,42000,71000,88000,109000,129000,144000,159000,170000,184000,209000,219000];
+
+var b=[
+"QUINA	<br>	6347	<br><br>	1 GANHADOR!	",
+"ESPAÇO DA SORTE	<br><br>	22 de janeiro de 2024	<br><br>	Segunda-feira	",
+"AS DEZENAS<br>SORTEADAS<br><br>22 29 62 74 75<br><br>Sem Repetição",
+"ESTIMATIVA PRÓXIMO<br>CONCURSO<br><br>R$ 700.000,00",
+"ESTIMATIVA<br>SÃO JOÃO<br><br>R$ 84.736.233,50",
+"QUINA<br><br>1 GANHADOR<br>R$ 643.750,74",
+"QUADRA<br><br>40 APOSTAS<br>GANHADORAS<br>R$ 6.897,33",
+"TERNO<br><br>2.123 APOSTAS<br>GANHADORAS<br>R$ 123,75",
+"DUQUE<br><br>58.316 APOSTAS<br>GANHADORAS<br>R$ 4,50",
+"AS 10 DEZENAS MAIS<br>ATRASADAS<br><br>20 03 78 80 08<br>24 34 63 70 01",
+"<br><br><br><br><br><br>DEIXE SEU LIKE",
+"<br><br><br><br><br>ESCOLHA UM DOS<br>NOSSOS VÍDEOS!!!"
+];
+	
+var c=[
+"QUINA	<br>	6347	<br><br>	1 GANHADOR!	",
+"ESPAÇO DA SORTE	<br><br>	22 de janeiro de 2024	<br><br>	Segunda-feira	",
+"AS DEZENAS<br>SORTEADAS<br><br>22 29 62 74 75<br><br>Sem Repetição",
+"ESTIMATIVA PRÓXIMO<br>CONCURSO<br><br>R$ 700.000,00",
+"ESTIMATIVA<br>SÃO JOÃO<br><br>R$ 84.736.233,50",
+"QUINA<br><br>1 GANHADOR<br>R$ 643.750,74",
+"QUADRA<br><br>40 APOSTAS<br>GANHADORAS<br>R$ 6.897,33",
+"TERNO<br><br>2.123 APOSTAS<br>GANHADORAS<br>R$ 123,75",
+"DUQUE<br><br>58.316 APOSTAS<br>GANHADORAS<br>R$ 4,50",
+"AS 10 DEZENAS MAIS<br>ATRASADAS<br><br>20 03 78 80 08<br>24 34 63 70 01",
+"<br><br><br><br><br><br>DEIXE SEU LIKE",
+"<br><br><br><br><br>ESCOLHA UM DOS<br>NOSSOS VÍDEOS!!!"
+];
+	
+	
+		function aniLegendas(){
+
+
+
+ 	
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[0];
+       ;}, a[0]);
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[1];
+	  moveEsquerda()}, a[1]);
+	  
+	  setTimeout(function () {
+        document.getElementById('result').innerHTML = b[2];
+	  moveEsquerda()}, a[2]);
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[3];
+      moveEsquerda()}, a[3]);
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[4];
+      moveEsquerda()}, a[4]);
+
+      setTimeout(function () {
+	  document.getElementById("ppt").src ="saoJoao.png";	
+        document.getElementById('result').innerHTML = b[5];
+      moveEsquerda()}, a[5]);
+
+      setTimeout(function () {
+	  	  document.getElementById("ppt").src ="modelo.png";	
+        document.getElementById('result').innerHTML = b[6];
+      moveEsquerda()}, a[6]);
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[7];
+      moveEsquerda()}, a[7]);
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[8];
+      moveEsquerda()}, a[8]);
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML = b[9];
+      moveEsquerda()}, a[9]);
+	  
+	        setTimeout(function () {
+        document.getElementById('result').innerHTML = b[10];
+      moveEsquerda()}, a[10]);
+	  
+	  	        setTimeout(function () {
+        document.getElementById('result').innerHTML = b[11];
+      moveEsquerda()}, a[11]);
+	  
+	  	        setTimeout(function () {
+        document.getElementById('result').innerHTML = b[12];
+      moveEsquerda()}, a[12]);
+	  
+	  
+	  
+}
+    </script>
+
+  </div>
+  
+  </div>
+  
+  
+
+<div id="botoes" style="position: fixed; margin-top: -140px; margin-left: 1300px; height: 200px; background-color: white;">
+<div id="controle">
+  <button                  onclick="chamarAmbas()">Chamar Ambas as Funções</button>
+  <button id="finalButton" onclick="registerTime('FINAL')">TEXTO '];'</button>
+  <button id="timerButton" onclick="registerTime('TIMER')">Milessigundos</button>
+  <button id="up"          onclick="aniLegendas()"  type="button"> <img src="up.png"    height ="10" width="10"  />up</button>
+  <button id="down"        onclick="joao()"         type="button"> <img src="down.png"  height ="10" width="10"  />down</button>
+  <button id="move"        onclick="moveEsquerda()" type="button"> <img src="up.png"    height ="10" width="10"  />ESQUERDA</button>
+
+  <audio id="audio" controls style="position: relative; margin-top: 0px;">
+    <source src="quina.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <input type="text" id="secondsTextBox"  style="width: 550px;" value="a=[0" readonly></input>
+  
+ 
+
+
+
+ 
+    <a href="https://loterias.caixa.gov.br/Paginas/Quina.aspx" target="_blank">
+    <button type="button" style="background-color: blue; color: white";>Quina</button>
+  </a>  
+  
+  <a href="https://loterias.caixa.gov.br/Paginas/Mega-Sena.aspx" target="_blank">
+    <button type="button" style="background-color: #F9D45B" >Mega</button>
+  </a>  
+  
+  <a href="https://www.guiadaloteria.com.br/estatistica-atraso-das-dezenas-quina.html" target="_blank">
+    <button type="button" style="background-color: cyan" >Quina+</button>
+  </a>  
+  
+    <a href="https://www.guiadaloteria.com.br/estatistica-atraso-das-dezenas-mega-sena.html" target="_blank">
+    <button type="button" style="background-color: cyan" >Mega+</button>
+  </a> 
+      
+	  
+
+    <button type="button" style="background-color: #00FF7F" >FOTO</button>
+
+	  
+	  
+	  
+	  
+	  
+<br><br>
+
+	  <button onclick="reiniciarPagina()" style="background-color: #eaf204;" >Reiniciar Página</button>
+  
+  <a href="https://www.guiadaloteria.com.br/estatistica-atraso-das-dezenas-quina.html" target="_blank">
+    <button type="button" style="background-color: #00FF7F" >AI Aleatórias</button>
+  </a>
+  
+  <a href="https://ttsmaker.com/" target="_blank">
+    <button type="button" style="background-color: #f9d45b" >TTSMAKER</button>
+  </a>
+  
+  
+  <a href="https://app.leonardo.ai/" target="_blank">
+    <button type="button" style="background-color: #00FF7F" >LeonardoAI</button>
+  </a>
+  
+  <a href="https://studio.youtube.com/channel/UCwaEUTRm77bOl__3FzhqDTQ/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D" target="_blank">
+    <button type="button" style="background-color: #FF86B2" >POSTAR</button></a>  
+	
+	
+	<a href="file:///C:/Users/Usu%C3%A1rio/OneDrive/%C3%81rea%20de%20Trabalho/AI_mega_III/mega.html" target="_blank">
+    <button type="button" style="background-color: #00FF7F" >MEGA</button></a>
+  
+    	<a href="https://chat.openai.com/" target="_blank">
+    <button type="button" style="background-color: white" >ChatGPT</button>
+	</a>    	
+	
+	
+	<a href="https://overscale.imagewith.ai/" target="_blank">
+    <button type="button" style="background-color: 00FF7F" >UPSCALE</button>
+	</a>
+	
+	
+	
+
+    <button type="button" onclick="left()"    style="background-color: 00FF7F" >LEFT</button>
+    <button type="button" onclick="right()"   style="background-color: 00FF7F" >RIGHT</button>
+
+	
+	
+
+  
+  
+</div>
+</div>
+
+
+<script type="text/javascript">
+    let tempo = 0;
+
+    document.getElementById('audio').addEventListener('timeupdate', function() {
+      tempo = Math.floor(this.currentTime)*1000;
+    });
+
+    function registerTime(source) {
+      const secondsTextBox = document.getElementById('secondsTextBox');
+
+      if (source === 'TIMER') {
+        secondsTextBox.value += `,${tempo}`;
+      } else if (source === 'FINAL') {
+        secondsTextBox.value += '];';
+      }
+    }
+  </script>
+  
+  
+  
+  
+ <div id="textos" style="margin-top: 140px; margin-left: 1260px; width: 100px; height: 550px;" contenteditable="true" >
+  
+<pre  style="position: fixed; margin-top: 90px; margin-left: 40px;  background-color: cyan; width: 1100px;" >
+QUINA 6346  ACUMULOU!,
+ESPAÇO DA SORTE  20 de Janeiro de 2024  Sábado Acumulou!,
+AS DEZENAS SORTEADAS  13 27 28 42 61  Sem Repetição,
+ESTIMATIVA PRÓXIMO CONCURSO  R$ 700.000,00,
+QUINA  1 GANHADOR 11.333.410,25,
+QUADRA  81 APOSTAS GANHADORAS R$  6.868,00,
+TERNO  6.303 APOSTAS GANHADORAS R$  84,05,
+DUQUE  149.946 APOSTAS GANHADORAS R$  3,53,
+AS 10 DEZENAS MAIS ATRASADAS  20 03 78 80 08 24 34 63 70 01,
+DEIXE SEU LIKE,
+ESCOLHA UM DOS NOSSOS VÍDEOS!!!
+</pre>
+</div>
+
+
+
+  
+  
+<div id="textTTS" style="margin-top: 140px; margin-left: 1300px; background-color: white"; contenteditable="true" >
+<pre  style="margin-top: -300px; margin-left: 40px"; >
+
+
+
+
+Resultado da Quina - Concurso 6345 (19/01/2024)   
+
+Olá, estimados espectadores! Estamos de volta com mais um emocionante episódio da Quina. Hoje, vamos analisar os resultados do Concurso 6345, que aconteceu no ESPAÇO DA SORTE em 19 de janeiro de 2024, uma sexta-feira repleta de expectativas. Vamos conferir os detalhes desse sorteio recheado de emoções!
+
+   QUINA 6345 - Acumulou!   
+
+Para os que estavam torcendo por uma vitória na Quina, infelizmente, o prêmio acumulou neste concurso. A emoção continua, e o próximo sorteio promete ser ainda mais empolgante.
+
+   AS DEZENAS SORTEADAS - 05, 21, 23, 66, 67 - Sem Repetição   
+
+Vamos às dezenas sorteadas que definiram o destino dos participantes deste concurso: 05, 21, 23, 66, 67. Destaque para a ausência de repetição entre as dezenas sorteadas, tornando este sorteio verdadeiramente único. Não deixem de conferir seus bilhetes para ver se a sorte bateu à sua porta.
+
+   ESTIMATIVA PRÓXIMO CONCURSO
+
+Para o próximo concurso, a estimativa de prêmio é tentadora, alcançando a marca de R$ 11.500.000,00. Uma oportunidade imperdível para participar e concorrer a esse prêmio significativo. Não percam a chance de realizar seus sonhos!
+
+   FINAL 5
+
+Aqueles que gostam de apostar nos concursos de finais 5, que acumulam o montante dos últimos 4 sorteios, podem se animar, pois o prêmio especial para quem acertar o concurso de final 5 já está acumulado em R$ 546.242,20. Uma chance extra de levar um prêmio maior para casa.
+
+   ESPECIAL DE SÃO JOÃO 
+
+Não podemos esquecer do prêmio especial de São João, que continua acumulando e alcançou a incrível marca de R$ 83.904.032,69. Este é um dos momentos mais emocionantes da Quina, criando grande expectativa para o próximo sorteio especial.
+
+   QUINA
+
+Infelizmente, na categoria principal, Quina, não tivemos ganhadores neste concurso. O prêmio acumula, e a ansiedade aumenta para o próximo sorteio. Em 2024, a Quina tem sido desafiadora, com acumulações frequentes.
+
+   QUADRA
+
+Na categoria de Quadra, tivemos 73 apostas ganhadoras, cada uma levando para casa R$ 7.482,77. Parabéns aos sortudos que acertaram quatro números e garantiram um prêmio considerável.
+
+   TERNO
+
+Os apostadores que acertaram o Terno foram premiados com R$ 91,50. Mesmo não sendo o prêmio principal, é uma conquista que merece ser celebrada.
+
+   DUQUE
+
+E na categoria Duque, tivemos 144.606 apostas ganhadoras, cada uma levando R$ 3,06. A quantidade de ganhadores mostra a popularidade dessa categoria entre os participantes.
+
+   AS 10 DEZENAS MAIS ATRASADAS
+
+Para os entusiastas das estatísticas, aqui estão as 10 dezenas mais atrasadas: 20, 03, 78, 80, 08, 24, 34, 63, 70 e 01. A dezena 20, a mais atrasada, não sai há determinados sorteios. Essas informações podem ser úteis na escolha dos números para os próximos jogos.
+
+E assim encerramos mais um capítulo emocionante da Quina. Não se esqueçam de conferir seus bilhetes e, se gostaram das informações, deixem aquele like. Escolham um dos nossos vídeos para continuar se divertindo conosco.
+
+Boa sorte a todos, e nos vemos no próximo sorteio!
+
+
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+
+<p style="width: 1050px; margin-left: 1340px">
+Resultado da Quina - Concurso 6345 (19/01/2024)   
+
+Olá, estimados espectadores! Estamos de volta com mais um emocionante episódio da Quina. Hoje, vamos analisar os resultados do Concurso 6345, que aconteceu no ESPAÇO DA SORTE em 19 de janeiro de 2024, uma sexta-feira repleta de expectativas. Vamos conferir os detalhes desse sorteio recheado de emoções!
+
+   QUINA 6345 - Acumulou!   
+
+Para os que estavam torcendo por uma vitória na Quina, infelizmente, o prêmio acumulou neste concurso. A emoção continua, e o próximo sorteio promete ser ainda mais empolgante.
+
+   AS DEZENAS SORTEADAS - 05, 21, 23, 66, 67 - Sem Repetição   
+
+Vamos às dezenas sorteadas que definiram o destino dos participantes deste concurso: 05, 21, 23, 66, 67. Destaque para a ausência de repetição entre as dezenas sorteadas, tornando este sorteio verdadeiramente único. Não deixem de conferir seus bilhetes para ver se a sorte bateu à sua porta.
+
+   ESTIMATIVA PRÓXIMO CONCURSO
+
+Para o próximo concurso, a estimativa de prêmio é tentadora, alcançando a marca de R$ 11.500.000,00. Uma oportunidade imperdível para participar e concorrer a esse prêmio significativo. Não percam a chance de realizar seus sonhos!
+
+   FINAL 5
+
+Aqueles que gostam de apostar nos concursos de finais 5, que acumulam o montante dos últimos 4 sorteios, podem se animar, pois o prêmio especial para quem acertar o concurso de final 5 já está acumulado em R$ 546.242,20. Uma chance extra de levar um prêmio maior para casa.
+
+   ESPECIAL DE SÃO JOÃO 
+
+Não podemos esquecer do prêmio especial de São João, que continua acumulando e alcançou a incrível marca de R$ 83.904.032,69. Este é um dos momentos mais emocionantes da Quina, criando grande expectativa para o próximo sorteio especial.
+
+   QUINA
+
+Infelizmente, na categoria principal, Quina, não tivemos ganhadores neste concurso. O prêmio acumula, e a ansiedade aumenta para o próximo sorteio. Em 2024, a Quina tem sido desafiadora, com acumulações frequentes.
+
+   QUADRA
+
+Na categoria de Quadra, tivemos 73 apostas ganhadoras, cada uma levando para casa R$ 7.482,77. Parabéns aos sortudos que acertaram quatro números e garantiram um prêmio considerável.
+
+   TERNO
+
+Os apostadores que acertaram o Terno foram premiados com R$ 91,50. Mesmo não sendo o prêmio principal, é uma conquista que merece ser celebrada.
+
+   DUQUE
+
+E na categoria Duque, tivemos 144.606 apostas ganhadoras, cada uma levando R$ 3,06. A quantidade de ganhadores mostra a popularidade dessa categoria entre os participantes.
+
+   AS 10 DEZENAS MAIS ATRASADAS
+
+Para os entusiastas das estatísticas, aqui estão as 10 dezenas mais atrasadas: 20, 03, 78, 80, 08, 24, 34, 63, 70 e 01. A dezena 20, a mais atrasada, não sai há determinados sorteios. Essas informações podem ser úteis na escolha dos números para os próximos jogos.
+
+E assim encerramos mais um capítulo emocionante da Quina. Não se esqueçam de conferir seus bilhetes e, se gostaram das informações, deixem aquele like. Escolham um dos nossos vídeos para continuar se divertindo conosco.
+
+Boa sorte a todos, e nos vemos no próximo sorteio!
+<p>
+
+  
+</body>
+
+</html>
